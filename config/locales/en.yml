@@ -21,16 +21,15 @@
 
 
 #
-# TODO: Replace instances of 'Biogeochemistry App' in this file with your app brand name.
 #
 
 en:
   brand:
-    name: 'Biogeochemistry App'
+    name: 'Biogeochemistry'
 
   emails:
     welcome:
-      subject: 'Welcome to Biogeochemistry App'
+      subject: 'Welcome to Biogeochemistry'
 
   auth:
     login:
@@ -68,7 +67,7 @@ en:
       prompt: 'Disconnect this social account?'
       tooltip: 'Disconnect social account and remove related data'
       warning: ''
-      notice: 'Your social account will be disconnected form your Biogeochemistry App account. You can reconnect the social account at any time.'
+      notice: 'Your social account will be disconnected form your Biogeochemistry account. You can reconnect the social account at any time.'
       submit: 'Yes, disconnect the account'
       cancel: 'Cancel'
     reconnect:
