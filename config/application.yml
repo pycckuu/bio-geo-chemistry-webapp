@@ -39,7 +39,7 @@ common: &common
 # As a best practice, do not put production values in this file for security reasons.
 default_env: &default_env
   # From address to use when sending email
-  MAIL_HOST: 'localhost:3000'
+  MAIL_HOST: 'lit-dusk-7224.herokuapp.com'
 
   # Host used to determine direct requests vs CDN.
   # See RobotsController.
