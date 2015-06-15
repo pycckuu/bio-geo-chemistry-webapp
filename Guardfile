@@ -1,4 +1,12 @@
-guard 'rspec', cmd: 'zeus rspec --color  --fail-fast', all_on_start: false, all_after_pass: true, notification: true  do
+# https://github.com/guard/guard#readme
+
+cmd = if defined? Zeus
+  'zeus rspec spec/'
+else
+  'spring rspec -f doc'
+end
+
+guard :rspec, cmd: cmd do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/rails_helper.rb')  { "spec" }

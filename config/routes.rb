@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   match '/error' => 'pages#error', via: [:get, :post], as: 'error_page'
   get '/terms' => 'pages#terms', as: 'terms'
   get '/privacy' => 'pages#privacy', as: 'privacy'
-  get '/as' => 'pages#as', as: 'as'
 
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix

@@ -21,7 +21,6 @@ gem 'newrelic_rpm'
 gem 'airbrake', '~> 3.2.1'         # use with airbrake.io or errbit
 # gem 'airbrake_user_attributes'  # use with self-hosted errbit; see config/initializers/airbrake.rb
 # gem 'rack-google-analytics'
-gem 'honeybadger', '~> 2.0'
 
 # Data
 gem 'pg'
@@ -32,7 +31,6 @@ gem 'dalli'                     # memcached
 # Assets
 gem 'sass-rails'
 gem 'haml-rails'
-gem 'high_voltage'
 gem 'simple_form'
 gem 'uglifier'
 gem 'headjs-rails'
@@ -87,7 +85,7 @@ group :development do
   # Errors
   # gem 'better_errors'
   # gem 'binding_of_caller'     # extra features for better_errors
-  gem 'meta_request'          # for rails_panel chrome extension
+  # gem 'meta_request'          # for rails_panel chrome extension
 
   # Deployment
   # gem 'capistrano'
@@ -100,9 +98,9 @@ end
 
 group :development, :test do
   # Use spring or zeus
-  # gem 'spring'                  # keep application running in the background
-  # gem 'spring-commands-rspec'
-  gem 'zeus'                  # required in gemfile for guard
+  gem 'spring'                  # keep application running in the background
+  gem 'spring-commands-rspec'
+  # gem 'zeus'                  # required in gemfile for guard
 
   # Debugging
   # gem 'pry'                   # better than irb

@@ -21,16 +21,16 @@
 
 
 #
-# TODO: Replace instances of 'WebApp' in this file with your app brand name.
+# TODO: Replace instances of 'StarterKit' in this file with your app brand name.
 #
 
 en:
   brand:
-    name: 'WebApp'
+    name: 'StarterKit'
 
   emails:
     welcome:
-      subject: 'Welcome to WebApp'
+      subject: 'Welcome to StarterKit'
 
   auth:
     login:
@@ -68,7 +68,7 @@ en:
       prompt: 'Disconnect this social account?'
       tooltip: 'Disconnect social account and remove related data'
       warning: ''
-      notice: 'Your social account will be disconnected form your WebApp account. You can reconnect the social account at any time.'
+      notice: 'Your social account will be disconnected form your StarterKit account. You can reconnect the social account at any time.'
       submit: 'Yes, disconnect the account'
       cancel: 'Cancel'
     reconnect:
