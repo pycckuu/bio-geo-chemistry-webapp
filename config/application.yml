@@ -9,20 +9,18 @@ common: &common
   # Downcased and trimmed app name for namespaces.
   # Safest to start with a letter rather than a number.
   # See locales/en.yml for setting your app's user facing brand name.
-  app_name: 'starterkit'
+  app_name: 'biogeochemistry'
 
   social:
-    facebook: 'https://www.facebook.com/simple10'
-    twitter: 'https://twitter.com/joejohnston'
-    google_plus: 'https://plus.google.com/+JoeJohnstonSF'
-    linkedin: 'http://www.linkedin.com/in/startupjoe'
+    facebook: 'https://www.facebook.com/is.markelov'
+    twitter: 'https://twitter.com/pycckuu2000'
 
   contact:
-    email: 'joe@example.com'
-    phone: '555-555-5555'
+    email: 'is.markelov@gmail.com'
+    phone: '+33 6 95 32 97 91'
 
   session:
-    key: '_starterkit_session'
+    key: '_biogeochemistry_session'
     expire_after: <%= 30.days %>
 
   rack:
@@ -31,7 +29,7 @@ common: &common
 
   mail:
     layout: 'emails/email'
-    from: 'from@example.com'
+    from: 'is.markelov@gmail.com'
 
 
 # Default ENV vars.
@@ -43,7 +41,7 @@ default_env: &default_env
 
   # Host used to determine direct requests vs CDN.
   # See RobotsController.
-  CANONICAL_HOST: 'rails4-starterkit.herokuapp.com'
+  CANONICAL_HOST: 'biogeochemistry.herokuapp.com'
 
   AUTH_FACEBOOK_KEY: '201539556694091'
   AUTH_FACEBOOK_SECRET: '80ae1dc93961b7f9a79265af0eeca698'
