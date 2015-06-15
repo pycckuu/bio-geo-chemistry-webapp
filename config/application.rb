@@ -51,6 +51,8 @@ module WebApp
 
     config.assets.precompile += %w( head )
 
+    config.assets.enabled = true
+
     config.to_prepare do
       Devise::Mailer.layout Rails.application.config.settings.mail.layout
     end
