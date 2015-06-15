@@ -30,7 +30,7 @@ class Users::OauthController < ApplicationController
   # OAuth Callback
   def create
     # Uncomment to debug oauth response
-    return render partial: 'authentications/debug_omniauth'
+    # return render partial: 'authentications/debug_omniauth'
 
     @auth = Authentication.unscoped.find_by_provider_and_proid(@provider, @omniauth['uid'])
 
