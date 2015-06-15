@@ -52,12 +52,12 @@ default_env: &default_env
   # Channging the keys will invalidate user passwords,
   # forcing users to use the forgot password feature.
   # TODO: make new keys with `rake secret`
-  DEVISE_SECRET_KEY: '7da7ce94b67dcb951aba685032aa7ddc17ae2551a7a11b60369eff65f1c3cc0a5525c93900b6315daf1558b973d7f5c0b6e80addd61225d6a23694a5fb8ff83e'
-  DEVISE_PEPPER: 'f23254b349cb3712c8c31dbdc4bb40555b0cd2ca9de98a15821ba5c2cb7d232b352e7f992bb8345dc53a2b4091f6b9dd1531bdaf1f1ae516d698e9f870d4e69c'
+  DEVISE_SECRET_KEY: '23214fd8b22fbcb64cb7014fd53113b633042a0f32c2cbb9cf0c38d0dc74f7908dd20ae534838e6fc0697b2285a90a5ec196b4149c4d6a1d5a04159db3f9124c'
+  DEVISE_PEPPER: '58fb245b56fec63189421c6dbf19203a0dc7f358d8adcd03c94f8ec37ece200f65cb94b31033c7c3ac22ff4f9eb0e1435797a1d5cb216e529622fcc047c16822'
 
   # Signed cookie encryption key.
   # TODO: make new key with `rake secret`
-  SECRET_KEY_BASE: '16e628ec083d6127ca30716ac69c578ba47a900702f0d498c149b87d06eeebd1bc0be22929e16e2180cb137e9be8bc7f77dd3b9c13fbb306330bb6450cfbc051'
+  SECRET_KEY_BASE: 'c6436d9b04d109f9b93dd235b530e6400de1da694287de3868938051d6cfb70ec05451675c845d2e618d16fdefa556ce8c16aa2a97bac49ec4fe29b0ed2a8310'
 
   # Redis server used by Sidekiq, cache, etc.
   REDIS_URL: 'redis://localhost:6379/0'
@@ -87,4 +87,4 @@ production:
   <<: *common
   env:
     # Set dummy key so rake assets:precompile succeeds
-    DEVISE_SECRET_KEY: ''
+    DEVISE_SECRET_KEY: 'asdasd234asd'
