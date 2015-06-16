@@ -2,7 +2,12 @@ class PagesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
 
-  # Preview html email template
+
+  
+  def bioenergetics
+    
+  end
+
   def email
     tpl = (params[:layout] || 'hero').to_sym
     tpl = :hero unless [:email, :hero, :simple].include? tpl
