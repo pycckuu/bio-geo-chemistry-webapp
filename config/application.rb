@@ -39,19 +39,19 @@ module BiogeochemistryApp
     # Disable I18n locale deprecation warning caused by newrelic gem
     # http://stackoverflow.com/questions/20361428/rails-i18n-validation-deprecation-warning
     I18n.enforce_available_locales = true
-
+    config.assets.enabled = false
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
     # Enable faster precompiles
-    config.assets.initialize_on_precompile = false
+    # config.assets.initialize_on_precompile = false
 
 
     # Serve vendor fonts
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+    # config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
 
-    config.assets.precompile = false
+    # config.assets.precompile += %w( head )
 
     config.to_prepare do
       Devise::Mailer.layout Rails.application.config.settings.mail.layout
