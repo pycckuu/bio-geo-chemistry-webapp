@@ -25,6 +25,7 @@ gem 'airbrake', '~> 3.2.1'         # use with airbrake.io or errbit
 # Data
 gem 'pg'
 gem 'dalli'                     # memcached
+gem 'activerecord-session_store'
 # gem 'schema_plus'             # add better index and foreign key support
 # gem 'jbuilder'
 
