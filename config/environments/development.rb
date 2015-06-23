@@ -17,6 +17,7 @@ Rails.application.configure do
   config.log_level = :debug
   config.logger = ActiveSupport::Logger.new(STDOUT)
   config.colorize_logging = true
+  config.serve_static_assets = true
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
