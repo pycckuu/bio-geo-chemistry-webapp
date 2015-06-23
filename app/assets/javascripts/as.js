@@ -14,7 +14,7 @@
     s.src = url;
     s.async = true;
     s.onreadystatechange = s.onload = function(){
-      Bokeh.embed.inject_css("bokeh-0.9.0.css");
+      Bokeh.embed.inject_css("/bokeh-0.9.0.css");
       window._bokeh_onload_callbacks.forEach(function(callback){callback()});
     };
     s.onerror = function(){
