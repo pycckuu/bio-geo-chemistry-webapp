@@ -6923,7 +6923,7 @@ input.bk-ui-editRangeSlider-inputValue{
 }
 .bk-plot-left.bk-toolbar-active .bk-button-bar .bk-button-bar-list.bk-bs-dropdown:before,
 .bk-plot-right.bk-toolbar-active .bk-button-bar .bk-button-bar-list.bk-bs-dropdown:before {
-  top: ;
+  /*top: ;*/
 }
 .bk-plot-left.bk-toolbar-active .bk-button-bar .bk-button-bar-list.bk-bs-dropdown:after,
 .bk-plot-right.bk-toolbar-active .bk-button-bar .bk-button-bar-list.bk-bs-dropdown:after {
