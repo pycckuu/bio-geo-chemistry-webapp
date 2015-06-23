@@ -19,7 +19,8 @@ module BiogeochemistryApp
   class Application < Rails::Application
     # Use sql instead of ruby to support case insensitive indices for postgres
     config.active_record.schema_format = :sql
-
+    config.active_record.raise_in_transactional_callbacks = true
+    
     # Cache
     # config.cache_store = :memory_store
     # config.cache_store = :mem_cache_store, ENV['MEMCACHE_SERVERS].split(','),
@@ -45,7 +46,7 @@ module BiogeochemistryApp
 
     # Enable faster precompiles
     config.assets.initialize_on_precompile = false
-    config.serve_static_assets = true
+
 
     # Serve vendor fonts
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
