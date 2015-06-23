@@ -46,12 +46,12 @@ module BiogeochemistryApp
 
     # Enable faster precompiles
     config.assets.initialize_on_precompile = false
-
+    config.assets.enabled = false
 
     # Serve vendor fonts
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
 
-    config.assets.precompile = false
+    config.assets.precompile += %w( head )
 
     config.to_prepare do
       Devise::Mailer.layout Rails.application.config.settings.mail.layout
