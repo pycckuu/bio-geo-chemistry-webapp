@@ -38,7 +38,7 @@ gem 'headjs-rails'
 
 # Javascript
 gem 'jquery-rails'
-# gem 'turbolinks'
+gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'nprogress-rails'
 

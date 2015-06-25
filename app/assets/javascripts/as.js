@@ -37,11 +37,11 @@
   if(typeof(Bokeh) !== "undefined") {
     console.log("Bokeh: BokehJS loaded, going straight to plotting");
     Bokeh.embed.inject_plot("21e36e95-16fc-4bfa-8572-8ed7152c4fcc", all_models);
-  } else {
-    load_lib(bokehjs_url, function() {
-      console.log("Bokeh: BokehJS plotting callback run at", new Date())
-      Bokeh.embed.inject_plot("21e36e95-16fc-4bfa-8572-8ed7152c4fcc", all_models);
-    });
+  // } else {
+    // load_lib(bokehjs_url, function() {
+      // console.log("Bokeh: BokehJS plotting callback run at", new Date())
+      // Bokeh.embed.inject_plot("21e36e95-16fc-4bfa-8572-8ed7152c4fcc", all_models);
+    // });
   }
 
 }(this));
