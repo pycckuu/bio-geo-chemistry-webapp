@@ -97,8 +97,8 @@ group :development do
 
   # Guard
   gem 'guard-rspec'
-  # gem 'guard-livereload'
-  # gem 'rack-livereload'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
 end
 
 group :development, :test do

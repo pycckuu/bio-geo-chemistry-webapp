@@ -20,6 +20,7 @@
 #= require rails_confirm_dialog
 #= require jquery.scrollto
 #= require as
+#= require as_400
 #= require bokeh-0.9.0.js
 
 
