@@ -1,10 +1,27 @@
-%h1= I18n.t('brand.name')
+.row
+  .col-md-4 
+    %h4 MyLake and Sediments Project
+    Lorem ipsum dolor sit amet, ei case dicat ius. Has ei prima soluta, inani melius alterum sea an. Vim amet tacimates an, impetus nostrud dissentiet in quo. Eligendi electram assentior vis no, ex solum alienum imperdiet nam.
+
+    Facer maiorum lucilius ne quo, no brute delenit gubergren vix. Ei atomorum urbanitas sit, vim elit rebum id. Mei ne brute clita, option iracundia interesset quo no. Persecuti deseruisse interpretaris mei eu. Cum et natum veniam cetero, putent impetus no sit. Has commodo molestiae at.
+  .col-md-4
+    %h4 Stand-Alone Sediments
+    Sediments is a biogeochemical model, which calculates the concentration of different species at each depth for a specific time period, based on the reaction framework, transport processes, and boundary conditions specified by the users. It does so by forming a system of partial differential equations based on the early diagenesis equation
+  .col-md-4
+    %h4 Bioenergetics
+    Using Humphrey (1972) equation the modelers imply the sequence of non-competitive inhibition of reactions. The mathematical term serves to inhibit the lower energy-yielding metabolic pathways keeping only the most favorable one. However, this approach does not take into account the dynamic nature of environmental systems, such as changes in pH, temperature, or redox state, which affects the thermodynamic driving force of energy-yielding reactions. The parameters of the inhibiting terms usually are site or experiment specific and, thus, lack general validity.
+
+.row
+  .col-sm-4
+    %h4 
+      = link_to 'Experimental work: As, Cr, Sb ', as_path
+    As: Experiment II
+    %script{id: "6f2ea055-b30d-4127-a150-952e190da1a7", async: "true", "data-bokeh-data": "static", "data-bokeh-modelid": "970bb34c-6d78-4f4d-a9b2-7428e8b5e756", "data-bokeh-modeltype": "Plot", "data-bokeh-loglevel": "info"}
+    Figure 1: Here you may see the interplay of sorption and biologically mediated detoxification reactions
+
+%h4 Acess
 
 %p
-
-
-%p
-
   To ask an access to 
   = link_to 'GitHub repository', 'https://github.com/orgs/biogeochemistry'
   of 
@@ -17,3 +34,6 @@
 
 %p
   = link_to 'Github', 'https://github.com/orgs/biogeochemistry/dashboard'
+
+
+= javascript_include_tag 'bokeh-0.9.0.js'
