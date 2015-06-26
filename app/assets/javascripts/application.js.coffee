@@ -20,11 +20,13 @@
 #= require rails_confirm_dialog
 #= require jquery.scrollto
 #= require bokeh-0.9.0.js
-#= require as
-#= require as_400
 
 
 # Add error class to .avatar images if they fail to load
 # See avatar.scss and _avatar.html.haml
 #= require imagesloaded
 #= require avatar.errors
+
+# BokehJS graph data
+#= require as
+#= require as_400
