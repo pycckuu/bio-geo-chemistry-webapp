@@ -16,9 +16,9 @@
 #= require nprogress
 #= require rails_confirm_dialog
 #= require jquery.scrollto
+#= require bokeh-0.9.0.js
 #= require as
 #= require as_400
-#= require bokeh-0.9.0.js
 
 
 # Add error class to .avatar images if they fail to load
