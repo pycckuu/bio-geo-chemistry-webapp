@@ -1,0 +1,22 @@
+= simple_form_for(@observation) do |f|
+  = f.error_notification
+  .form-inputs
+    .row
+      .col-md-4
+        = f.input :reaction_name
+        = f.input :donor
+        = f.input :acceptor
+        = f.input :reaction
+      .col-md-4
+        = f.input :lab, label: "Check if measured in the lab?", hint: "uncheck if in situ"
+        = f.input :environment_type
+        = f.input :location_name
+      .col-md-4
+        = f.input :rate
+        = f.input :gibbs_energy
+        = f.input :reference
+        = f.input :paper
+    .row
+      .col-md-2
+        .form-actions
+          = f.button :submit, class: "btn btn-primary"

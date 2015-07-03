@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Reaction name:
+  = @observation.reaction_name
+%p
+  %b Donor:
+  = @observation.donor
+%p
+  %b Acceptor:
+  = @observation.acceptor
+%p
+  %b Reaction:
+  = @observation.reaction
+%p
+  %b Lab:
+  = @observation.lab
+%p
+  %b Environment type:
+  = @observation.environment_type
+%p
+  %b Location name:
+  = @observation.location_name
+%p
+  %b Rate:
+  = @observation.rate
+%p
+  %b Gibbs energy:
+  = @observation.gibbs_energy
+%p
+  %b Reference:
+  = @observation.reference
+%p
+  %b Paper:
+  = @observation.paper
+
+
+= link_to 'Edit', edit_observation_path(@observation), class: "btn btn-primary"
+= link_to 'Delete', @observation, method: :delete, data:  { confirm: 'Are you sure?' }, class: 'btn btn-danger'

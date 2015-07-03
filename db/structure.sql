@@ -81,6 +81,48 @@ CREATE TABLE oauth_caches (
 
 
 --
+-- Name: observations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE observations (
+    id integer NOT NULL,
+    reaction_name character varying,
+    donor character varying,
+    acceptor character varying,
+    reaction character varying,
+    lab boolean,
+    environment_type character varying,
+    location_name character varying,
+    rate double precision,
+    gibbs_energy double precision,
+    reference character varying,
+    paper character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    user_id integer
+);
+
+
+--
+-- Name: observations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE observations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: observations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE observations_id_seq OWNED BY observations.id;
+
+
+--
 -- Name: rails_admin_histories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -219,6 +261,13 @@ ALTER TABLE ONLY authentications ALTER COLUMN id SET DEFAULT nextval('authentica
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY observations ALTER COLUMN id SET DEFAULT nextval('observations_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY rails_admin_histories ALTER COLUMN id SET DEFAULT nextval('rails_admin_histories_id_seq'::regclass);
 
 
@@ -242,6 +291,14 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 ALTER TABLE ONLY authentications
     ADD CONSTRAINT authentications_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: observations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY observations
+    ADD CONSTRAINT observations_pkey PRIMARY KEY (id);
 
 
 --
@@ -350,4 +407,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140204233100');
 INSERT INTO schema_migrations (version) VALUES ('20140204233952');
 
 INSERT INTO schema_migrations (version) VALUES ('20150623161738');
+
+INSERT INTO schema_migrations (version) VALUES ('20150701173018');
+
+INSERT INTO schema_migrations (version) VALUES ('20150702185519');
 

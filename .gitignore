@@ -1,3 +1,4 @@
 /tmp/
 /log/
 *.sublime-workspace
+/coverage/

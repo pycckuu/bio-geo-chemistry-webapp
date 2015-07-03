@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  has_many :observations
+
   after_create :send_welcome_emails
 
   def display_name
