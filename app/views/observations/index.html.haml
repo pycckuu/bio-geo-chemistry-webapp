@@ -30,4 +30,10 @@
 
 %br
 
-= link_to 'New Observation', new_observation_path
+.row
+  .col-md-6
+    .pull-left
+      = link_to 'New Observation', new_observation_path
+  .col-md-6
+    .pull-right
+      = link_to 'Export as CSV', observations_path(format: :csv)

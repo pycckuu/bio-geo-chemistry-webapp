@@ -4,8 +4,17 @@ class ObservationsController < ApplicationController
   before_action :set_observation, only: [:show, :edit, :update, :destroy]
 
   # GET /observations
+
+
   def index
     @observations = Observation.all
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"user-list\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   # GET /observations/1

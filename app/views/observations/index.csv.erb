@@ -1,0 +1,5 @@
+<%- headers = ['reaction_name', 'donor', 'acceptor', 'reaction', 'lab', 'environment_type', 'location_name', 'rate', 'gibbs_energy', 'reference', 'paper', 'user_id', 'lat', 'lng', 'add_info', 'gibbs_units', 'rate_units'] -%>
+<%= CSV.generate_line headers %>
+<%- @observations.each do |observation| -%>
+  <%= CSV.generate_line([ observation.reaction_name, observation.donor, observation.acceptor, observation.reaction, observation.lab, observation.environment_type, observation.location_name, observation.rate, observation.gibbs_energy, observation.reference, observation.paper, observation.user_id, observation.lat, observation.lng, observation.add_info, observation.gibbs_units, observation.rate_units ]).html_safe %>
+<%- end -%>
