@@ -1,49 +1,33 @@
-%h1 Listing observations
+%h1 Observations
 
-%table{class: 'table table-bordered'}
+%table{class: 'table'}
   %thead
     %tr
       %th ID
       %th Reaction name
-      %th Donor
-      %th Acceptor
-      %th Reaction
       %th Lab
-      %th Environment type
-      %th Location name
+      %th Type
+      %th Where
       %th Rate
       %th Gibbs energy
       %th Reference
-      %th Paper
-      %th
-      %th
       %th
 
   %tbody
     - @observations.each do |observation|
       %tr
-        %td= observation.id
+        %td= link_to observation.id, observation
         %td= observation.reaction_name
-        %td= observation.donor
-        %td= observation.acceptor
-        %td= observation.reaction
         - if observation.lab 
           %td Lab
         - else
           %td In Situ
         %td= observation.environment_type
         %td= observation.location_name
-        %td= observation.rate
-        %td= observation.gibbs_energy
-        %td= observation.reference
-        %td= observation.paper
-        %td= link_to 'Show', observation
-        %td= link_to 'Edit', edit_observation_path(observation)
+        %td= observation.rate.to_s + ', ' + observation.rate_units
+        %td= observation.gibbs_energy.to_s + ', ' + observation.gibbs_units
+        %td= first_author(observation.reference)
 
 %br
-%h1 What abilities do I have?
-%ul
-  = can?(:manage, Observation)
-  = can?(:manage, :all)
 
 = link_to 'New Observation', new_observation_path

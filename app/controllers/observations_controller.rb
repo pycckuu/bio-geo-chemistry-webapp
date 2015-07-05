@@ -56,6 +56,6 @@ class ObservationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def observation_params
-      params.require(:observation).permit(:reaction_name, :donor, :acceptor, :reaction, :lab, :environment_type, :location_name, :rate, :gibbs_energy, :reference, :paper, :user_id)
+      params.require(:observation).permit(:reaction_name, :donor, :acceptor, :reaction, :lab, :environment_type, :location_name, :rate, :gibbs_energy, :reference, :paper, :user_id, :lat, :lng, :add_info, :gibbs_units, :rate_units)
     end
 end

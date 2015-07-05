@@ -125,6 +125,7 @@ GEM
     github-markdown (0.6.8)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     grit (2.0.0)
       diff-lcs (>= 1.1.2)
       mime-types (>= 1.15)
@@ -424,6 +425,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.8.3)
     unicode_utils (1.4.0)
     unicorn (4.9.0)
       kgio (~> 2.6)
@@ -448,6 +450,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  byebug
   cancancan (~> 1.9)
   capybara-webkit
   coderay
@@ -460,6 +463,7 @@ DEPENDENCIES
   factory_girl_rails
   ffaker (~> 1.25.0)
   github-markdown
+  gmaps4rails
   guard-livereload
   guard-rspec
   haml-rails
@@ -508,6 +512,7 @@ DEPENDENCIES
   terminal-notifier-guard
   turbolinks
   uglifier
+  underscore-rails
   unicorn
   zeus
 

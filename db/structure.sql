@@ -99,7 +99,12 @@ CREATE TABLE observations (
     paper character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    user_id integer
+    user_id integer,
+    lat numeric,
+    lng numeric,
+    add_info text,
+    gibbs_units character varying,
+    rate_units character varying
 );
 
 
@@ -411,4 +416,10 @@ INSERT INTO schema_migrations (version) VALUES ('20150623161738');
 INSERT INTO schema_migrations (version) VALUES ('20150701173018');
 
 INSERT INTO schema_migrations (version) VALUES ('20150702185519');
+
+INSERT INTO schema_migrations (version) VALUES ('20150705143224');
+
+INSERT INTO schema_migrations (version) VALUES ('20150705155634');
+
+INSERT INTO schema_migrations (version) VALUES ('20150705161055');
 

@@ -83,6 +83,9 @@ gem 'github-markdown'
 # gem 'gollum'
 # gem 'html-pipeline'
 
+gem 'gmaps4rails'
+gem 'underscore-rails'
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails
@@ -109,7 +112,7 @@ group :development, :test do
 
   # Debugging
   gem 'pry'                   # better than irb
-  # gem 'byebug'                # ruby 2.0 debugger with built-in pry
+  gem 'byebug'                # ruby 2.0 debugger with built-in pry
   gem 'pry-rails'               # adds rails specific commands to pry
   gem 'pry-byebug'              # add debugging commands to pry
   gem 'pry-stack_explorer'      # navigate call stack
