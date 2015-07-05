@@ -93,9 +93,11 @@
         = @observation.environment_type
     .row
       .col-md-4
-        %b User:
+        %b Added by:
       .col-md-8
         = @observation.owner.name
+        = time_ago_in_words(@observation.created_at)
+        ago
 
 .pull-left
   = link_to 'Back', observations_path

@@ -3,8 +3,6 @@
     %h4 Edit the observation
   .col-md-6
     = link_to 'Delete Observation', @observation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger pull-right"
-%b
-  Please fill-in the data about the observation you found. If used we encourage authors to cite the both reference papers.
 
 = render 'form'
 %p
