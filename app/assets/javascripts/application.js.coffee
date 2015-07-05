@@ -30,3 +30,9 @@
 # BokehJS graph data
 #= require as
 #= require as_400
+
+
+# gMaps
+#= require underscore
+#= require gmaps/google
+#= require gmaps_custom
