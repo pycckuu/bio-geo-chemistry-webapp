@@ -35,13 +35,7 @@ common: &default_settings
   # separated list of up to three distinct names, or a yaml list.
   # Defaults to the capitalized RAILS_ENV or RACK_ENV (i.e.,
   # Production, Staging, etc)
-  #
-  # Example:
-  #
-  #   app_name:
-  #       - Ajax Service
-  #       - All Services
-  #
+
   app_name: <%= I18n.t 'brand.name' %>
 
   # When "true", the agent collects performance data about your
