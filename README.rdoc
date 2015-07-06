@@ -53,31 +53,12 @@
 * Free hosting — configured to run web and job processes in single Heroku dyno to get started
 * Unicorn[http://unicorn.bogomips.org/] — web server
 
-= Testing
-
-{<img src="https://travis-ci.org/starterkits/rails4-starterkit.png?branch=master" alt="Build Status" />}[https://travis-ci.org/starterkits/rails4-starterkit]
-
-For BDD/TDD, just keep guard running in the background. The relevant tests will automatically run when code is added or modified.
-
-To run the full test suite without guard...
-
-  # Spring
-  rspec spec
-
-  # Without Spring
-  DISABLE_SPRING=true rspec spec
-
-  # Zeus
-  zeus test spec
-
-
-Note that Sidekiq does not process jobs in tests.
 
 
 <b>Additional Steps</b>
 
-StarterKit is pre-configured to make it easy to deploy apps into production environments.
-However, it's a good idea to consider the following steps to make your app production ready:
+Pre-configured to make it easy to deploy apps into production environments.
+However, it's a good idea to consider the following steps to make the app production ready:
 
 * split worker and web processes into separate servers or dynos
 * add SSL with CloudFlare, Heroku SSL, or similar
@@ -85,7 +66,6 @@ However, it's a good idea to consider the following steps to make your app produ
 * setup Errbit or Airbrake and configure StarterKit to track errors
 * send syslogs to a central logger that supports searching and filtering
 * use a security service to analyze site for common security holes (XSS, etc.)
-
 
 
 = Auth Flows
