@@ -15,11 +15,12 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module WebApp
+module BiogeochemistryApp
   class Application < Rails::Application
     # Use sql instead of ruby to support case insensitive indices for postgres
     config.active_record.schema_format = :sql
-
+    config.active_record.raise_in_transactional_callbacks = true
+    
     # Cache
     # config.cache_store = :memory_store
     # config.cache_store = :mem_cache_store, ENV['MEMCACHE_SERVERS].split(','),
@@ -45,13 +46,13 @@ module WebApp
 
     # Enable faster precompiles
     config.assets.initialize_on_precompile = false
+    config.serve_static_assets = true
+
 
     # Serve vendor fonts
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
 
     config.assets.precompile += %w( head )
-
-    config.assets.enabled = true
 
     config.to_prepare do
       Devise::Mailer.layout Rails.application.config.settings.mail.layout

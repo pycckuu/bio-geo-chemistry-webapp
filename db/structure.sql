@@ -81,6 +81,53 @@ CREATE TABLE oauth_caches (
 
 
 --
+-- Name: observations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE observations (
+    id integer NOT NULL,
+    reaction_name character varying,
+    donor character varying,
+    acceptor character varying,
+    reaction character varying,
+    lab boolean,
+    environment_type character varying,
+    location_name character varying,
+    rate double precision,
+    gibbs_energy double precision,
+    reference character varying,
+    paper character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    user_id integer,
+    lat numeric,
+    lng numeric,
+    add_info text,
+    gibbs_units character varying,
+    rate_units character varying
+);
+
+
+--
+-- Name: observations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE observations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: observations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE observations_id_seq OWNED BY observations.id;
+
+
+--
 -- Name: rails_admin_histories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -123,6 +170,38 @@ ALTER SEQUENCE rails_admin_histories_id_seq OWNED BY rails_admin_histories.id;
 CREATE TABLE schema_migrations (
     version character varying(255) NOT NULL
 );
+
+
+--
+-- Name: sessions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sessions (
+    id integer NOT NULL,
+    session_id character varying NOT NULL,
+    data text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sessions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE sessions_id_seq OWNED BY sessions.id;
 
 
 --
@@ -187,7 +266,21 @@ ALTER TABLE ONLY authentications ALTER COLUMN id SET DEFAULT nextval('authentica
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY observations ALTER COLUMN id SET DEFAULT nextval('observations_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY rails_admin_histories ALTER COLUMN id SET DEFAULT nextval('rails_admin_histories_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sessions ALTER COLUMN id SET DEFAULT nextval('sessions_id_seq'::regclass);
 
 
 --
@@ -206,11 +299,27 @@ ALTER TABLE ONLY authentications
 
 
 --
+-- Name: observations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY observations
+    ADD CONSTRAINT observations_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: rails_admin_histories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY rails_admin_histories
     ADD CONSTRAINT rails_admin_histories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY sessions
+    ADD CONSTRAINT sessions_pkey PRIMARY KEY (id);
 
 
 --
@@ -233,6 +342,20 @@ CREATE INDEX index_authentications_on_provider ON authentications USING btree (p
 --
 
 CREATE INDEX index_rails_admin_histories ON rails_admin_histories USING btree (item, "table", month, year);
+
+
+--
+-- Name: index_sessions_on_session_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_sessions_on_session_id ON sessions USING btree (session_id);
+
+
+--
+-- Name: index_sessions_on_updated_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sessions_on_updated_at ON sessions USING btree (updated_at);
 
 
 --
@@ -287,4 +410,16 @@ INSERT INTO schema_migrations (version) VALUES ('20131021224642');
 INSERT INTO schema_migrations (version) VALUES ('20140204233100');
 
 INSERT INTO schema_migrations (version) VALUES ('20140204233952');
+
+INSERT INTO schema_migrations (version) VALUES ('20150623161738');
+
+INSERT INTO schema_migrations (version) VALUES ('20150701173018');
+
+INSERT INTO schema_migrations (version) VALUES ('20150702185519');
+
+INSERT INTO schema_migrations (version) VALUES ('20150705143224');
+
+INSERT INTO schema_migrations (version) VALUES ('20150705155634');
+
+INSERT INTO schema_migrations (version) VALUES ('20150705161055');
 

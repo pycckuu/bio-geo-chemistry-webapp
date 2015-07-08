@@ -9,20 +9,18 @@ common: &common
   # Downcased and trimmed app name for namespaces.
   # Safest to start with a letter rather than a number.
   # See locales/en.yml for setting your app's user facing brand name.
-  app_name: 'web_app'
+  app_name: 'biogeochemistry'
 
   social:
-    facebook: ''
-    twitter: ''
-    google_plus: ''
-    linkedin: ''
+    facebook: 'https://www.facebook.com/is.markelov'
+    twitter: 'https://twitter.com/pycckuu2000'
 
   contact:
-    email: ''
-    phone: ''
+    email: 'is.markelov@gmail.com'
+    phone: '+33 6 95 32 97 91'
 
   session:
-    key: ''
+    key: '_biogeochemistry_session'
     expire_after: <%= 30.days %>
 
   rack:
@@ -31,7 +29,7 @@ common: &common
 
   mail:
     layout: 'emails/email'
-    from: 'from@example.com'
+    from: 'is.markelov@gmail.com'
 
 
 # Default ENV vars.
@@ -43,30 +41,30 @@ default_env: &default_env
 
   # Host used to determine direct requests vs CDN.
   # See RobotsController.
-  CANONICAL_HOST: ''
+  CANONICAL_HOST: 'biogeochemistry.herokuapp.com'
 
-  AUTH_FACEBOOK_KEY: '1447509692216749'
-  AUTH_FACEBOOK_SECRET: 'd4be8224391ebaff0793044a6129e737'
-  AUTH_TWITTER_KEY: ''
-  AUTH_TWITTER_SECRET: ''
+  AUTH_FACEBOOK_KEY: ENV['AUTH_FACEBOOK_KEY']
+  AUTH_FACEBOOK_SECRET: ENV['AUTH_FACEBOOK_SECRET']
+  AUTH_TWITTER_KEY: ENV['AUTH_TWITTER_KEY']
+  AUTH_TWITTER_SECRET: ENV['AUTH_TWITTER_SECRET']
 
   # Devise password encryption keys.
   # Channging the keys will invalidate user passwords,
   # forcing users to use the forgot password feature.
   # TODO: make new keys with `rake secret`
-  DEVISE_SECRET_KEY: 'af81877c56bde11ec38781cfdcb66338424ced5035c186714c12ff6db1d91a55e70419160c154ccbb07f8406ef934c8f9924815f4dc012e8dfaf197e8ba5f748'
-  DEVISE_PEPPER: '88a54398f4a1c0b36df7b65d47176e226203f77cd2b036e875203910baa3c9c3f3797500989b018e70373e37ddd574493cebccf85f843f337e197a17f6e3274b'
+  DEVISE_SECRET_KEY: ENV['DEVISE_SECRET_KEY']
+  DEVISE_PEPPER: ENV['DEVISE_PEPPER']
 
   # Signed cookie encryption key.
   # TODO: make new key with `rake secret`
-  SECRET_KEY_BASE: '2e113f34eb797e6af80204496ad1558f159c041564664eaa823ffedefc6d350758a7f1a721c3158263abf8b42d7eb5bcf746496316cec6159418fc14cb7f8f24'
+  SECRET_KEY_BASE: ENV['SECRET_KEY_BASE']
 
   # Redis server used by Sidekiq, cache, etc.
   REDIS_URL: 'redis://localhost:6379/0'
 
   # Airbrake/Errbit configuration
-  AIRBRAKE_API_KEY: ''
-  AIRBRAKE_HOST: ''
+  AIRBRAKE_API_KEY: ENV['AIRBRAKE_API_KEY']
+  AIRBRAKE_HOST: ENV['AIRBRAKE_HOST']
 
 
 development:
@@ -89,4 +87,4 @@ production:
   <<: *common
   env:
     # Set dummy key so rake assets:precompile succeeds
-    DEVISE_SECRET_KEY: ''
+    DEVISE_SECRET_KEY: 'asdasd234asd'

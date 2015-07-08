@@ -1,0 +1,44 @@
+.row
+  .col-md-4 
+    %h4 MyLake and Sediments Project
+    The MyLake model has been developed at 
+    =link_to 'NIVA (Norwegian Institute for Water Research)', 'http://www.niva.no/en/index' 
+    within various projects, and is freely available, but comes with no warranty under
+    = succeed '.' do
+      = link_to 'GNU General Public Licence', 'http://www.gnu.org/copyleft/gpl.html'
+    MyLake consists of a set of model code files, and has no graphical user interface. The model applications are controlled via 
+    = link_to 'MATLAB', 'http://mathworks.com/products/matlab/' 
+    scripts written specifically for each application.
+  .col-md-4
+    %h4 Stand-Alone Sediments
+    Sediments is a biogeochemical model, which calculates the concentration of different species at each depth for a specific time period, based on the reaction framework, transport processes, and boundary conditions specified by the users. It does so by forming a system of partial differential equations based on the early diagenesis equation
+  .col-md-4
+    %h4 Bioenergetics
+    Using Humphrey (1972) equation the modelers imply the sequence of non-competitive inhibition of reactions. The mathematical term serves to inhibit the lower energy-yielding metabolic pathways keeping only the most favorable one. However, this approach does not take into account the dynamic nature of environmental systems, such as changes in pH, temperature, or redox state, which affects the thermodynamic driving force of energy-yielding reactions. The parameters of the inhibiting terms usually are site or experiment specific and, thus, lack general validity.
+
+.row
+  .col-sm-4
+    %h4 
+      = link_to 'Experimental work: As, Cr, Sb ', as_path
+    As: Experiment II
+    %script{id: "630c1d2b-4ac2-46cf-87d1-ac26055c1944", async: "true", "data-bokeh-data": "static", "data-bokeh-modelid": "143c7b48-2ef6-452c-8411-8fa69047209c", "data-bokeh-modeltype": "Plot", "data-bokeh-loglevel": "info"}
+    Figure 1: Here you may see the interplay of sorption and biologically mediated detoxification reactions
+
+%h4 Access
+
+%p
+  To ask an access to 
+  = link_to 'GitHub repository', 'https://github.com/orgs/biogeochemistry'
+  of 
+  = I18n.t 'brand.name'
+  please contact 
+  = mail_to "is.markelov@gmail.com", "Igor Markelov" 
+  or 
+  = mail_to "rmc@niva.no", "Raoul Couture"
+
+  Test
+%p
+  = link_to 'Github', 'https://github.com/orgs/biogeochemistry/dashboard'
+
+
+= javascript_include_tag 'as_400.js'

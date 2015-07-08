@@ -1,0 +1,113 @@
+%p#notice= notice
+
+.row
+  .col-sm-6
+    %p
+    .row
+      .col-md-4
+        %b Reaction name:
+      .col-md-8
+        = @observation.reaction_name
+    %p
+    .row
+      .col-md-4
+        %b Donor:
+      .col-md-8
+        = @observation.donor
+    %p
+    .row
+      .col-md-4
+        %b Acceptor:
+      .col-md-8
+        = @observation.acceptor
+    %p
+    .row
+      .col-md-4
+        %b Reaction:
+      .col-md-8
+        = @observation.reaction
+    %p
+    .row
+      .col-md-4
+        %b Measured: 
+      .col-md-8
+        - if @observation.lab
+          In the lab
+        - else
+          in Situ
+    %p
+    .row
+      .col-md-4
+        %b Rate:
+      .col-md-8
+        = @observation.rate
+        = @observation.rate_units
+    %p
+    .row
+      .col-md-4
+        %b Gibbs energy:
+      .col-md-8
+        = @observation.gibbs_energy
+        = @observation.gibbs_units
+    %p
+    .row
+      .col-md-4
+        %b Reference:
+      .col-md-8
+        = @observation.reference
+    %p
+    .row
+      .col-md-4
+        %b Paper:
+      .col-md-8
+        = @observation.paper
+    %p
+    .row
+      .col-md-4
+        %b Additional info:
+      .col-md-8
+        =@observation.add_info
+  .col-sm-6
+    %p
+    .row
+      .col-md-4
+        %b location_name:
+      .col-md-8
+        = @observation.location_name
+    #map{style: 'width: 400px; height: 400px;'}
+    %p
+    .row
+      .col-md-4
+        %b Latitude:
+      .col-md-8
+        = @observation.lat 
+    .row
+      .col-md-4
+        %b Longitude:
+      .col-md-8
+        = @observation.lng 
+    .row
+      .col-md-4
+        %b Type:
+      .col-md-8
+        = @observation.environment_type
+    .row
+      .col-md-4
+        %b Added by:
+      .col-md-8
+        = @observation.owner.name
+        = time_ago_in_words(@observation.created_at)
+        ago
+
+.pull-left
+  = link_to 'Back', observations_path
+.pull-right
+  = link_to 'Edit', edit_observation_path(@observation), class: "btn btn-primary"
+  = link_to 'Delete', @observation, method: :delete, data:  { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+
+:javascript
+  $(document).ready(function(){
+    var observation = #{@observation.to_json}    // pass ruby variable to javascript
+    gmap_show(observation);    // init show map for observation card (only print marker)
+  });

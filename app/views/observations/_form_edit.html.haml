@@ -1,0 +1,51 @@
+= simple_form_for(@observation) do |f|
+  = f.error_notification
+  .form-inputs
+    .row
+      .col-sm-6
+        = f.input :reaction_name, placeholder: "ex: sulfate reduction, glucose oxidation, etc."
+        = f.input :donor, label: "Terminal Electron Donor", placeholder: "ex: glucose, hydrogen"
+        = f.input :acceptor, label: "Terminal Electron Acceptor", placeholder: "ex: sulfate, hydrogen"
+        = f.input :reaction, label: "Chemical Reaction", placeholder: "ex: 3C6H12O6 + 3SO4^{2-} + 21H{+}  -> 6CH3COO{-} + 12H2 + 6CO2 + 3HS{-} + 6H2O"
+        .row
+          .col-sm-6
+            Measured in the lab or in Situ?:
+          .col-sm-6
+            = f.label :lab, "Lab" 
+            = f.radio_button :lab, true, :value => true
+            = f.label :lab, "in Situ" 
+            = f.radio_button :lab, false, :value => false
+        .row
+          .col-sm-8
+            = f.input :rate, label: "Rate of the Chemical Reaction", placeholder: "ex: 3.13E-13, 0.0000001"
+          .col-sm-4
+            = f.label :rate_units, "Units:" 
+            = f.select :rate_units, options_for_select(rate_units), {}, {class: "form-control"}
+        .row
+          .col-sm-8
+            = f.input :gibbs_energy, label: "Gibbs Energy of Reaction (non-standard)", placeholder: "ex: 4.48E+5, 448000"
+          .col-sm-4
+            = f.label :gibbs_units, "Units:" 
+            = f.select :gibbs_units, options_for_select(gibbs_units), {}, {class: "form-control"}
+
+        = f.input :reference, label: "Reference to the paper", placeholder: "ex: Røy, H., Kallmeyer, J., Adhikari, R. R., Pockalny, R., Jørgensen, B. B., & D'Hondt, S. (2012). Aerobic microbial respiration in 86-million-year-old deep-sea red clay. Science, 336(6083), 922–925. http://doi.org/10.1126/science.1219424"
+        = f.input :paper, label: "Reference to the paper where it was found" ,placeholder: "ex: LaRowe, D. E., & Amend, J. P. (2015). Catabolic rates, population sizes and doubling/replacement times of microorganisms in natural settings. American Journal of Science, 315(3), 167–203. http://doi.org/10.2475/03.2015.01", hint: "fill this if you found the data not in the original paper but in different with reference to the original"
+        =f.input :add_info, label: "Additional information about measurements", placeholder: "ex: Concentrations of elements or bacteria, Depth of the measurements, temperature..."
+      .col-sm-6
+        = f.input :location_name, placeholder: "ex: Gulf of Mexico"
+        %b Select the new place to update the coordinates:      
+        #map{style: 'width: 400px; height: 400px;'}
+        %b Or type the coordinates(+N and +E , -S and -W):
+        = f.input :lat, id: 'map_lat', label: "Latitude"
+        = f.input :lng, id: 'map_lng', label: "Longitude"
+        = f.input :environment_type, placeholder: "ex: open ocean sediments, mud volcano / seafloor brine", hint: "marine brine pool , continental margin sediments, marine cold seep sediments, lake sediments, submarine mud volcanoes, shelf and trough sediments, diffuse hydrothermal vent, open ocean sediments, etc.. "
+
+    .row
+      = link_to 'Back', observations_path
+      = f.button :submit, class: "btn btn-primary pull-right"
+
+:javascript
+  $(document).ready(function(){
+    var observation = #{@observation.to_json}
+    gmap_form(observation);    // form map for edit view (print marker and possibility of put newer)
+  });

@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  has_many :observations
+
   after_create :send_welcome_emails
 
   def display_name
@@ -59,5 +61,9 @@ class User < ActiveRecord::Base
   def send_welcome_emails
     UserMailer.delay.welcome_email(self.id)
     # UserMailer.delay_for(5.days).find_more_friends_email(self.id)
+  end
+
+  def name
+    [first_name,last_name].join(" ")
   end
 end

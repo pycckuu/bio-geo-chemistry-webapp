@@ -4,8 +4,11 @@
 //
 
 //= require_self
+//=require paper
+
 
 // Core
+@import "font-awesome";
 @import "variables";
 @import "bootstrap";
 @import "icons_social";
@@ -14,6 +17,7 @@
 @import "cards";
 @import "footer";
 @import "hacks";
+@import "bokeh-0.9.0.css";
 
 // Plugins
 @import 'nprogress';

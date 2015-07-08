@@ -11,6 +11,17 @@ class Users::OauthController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_vars
 
+    def facebook
+      binding.pry
+      @user = User.from_omniauth(request.env["omniauth.auth"])
+      sign_in_and_redirect @user
+    end
+
+    def twitter
+      @user = User.from_omniauth(request.env["omniauth.auth"])
+      sign_in_and_redirect @user
+    end
+
   # OmniAuth passthru to use for route naming
   def passthru
     render :nothing, status: 404

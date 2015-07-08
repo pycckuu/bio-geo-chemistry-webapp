@@ -8,6 +8,23 @@
     = link_to I18n.t('brand.name'), root_path, class: 'navbar-brand'
 
   .collapse.navbar-collapse
+    %ul.nav.navbar-nav.navbar-left
+      %li= link_to "GitHub", "https://github.com/orgs/biogeochemistry/dashboard"
+      %li.dropdown
+        %a.dropdown-toggle{href: '#', data: {toggle: 'dropdown'}}
+          Experiments
+        %ul.dropdown-menu
+          %li= link_to 'As, Cr, Sb', as_path
+      %li.dropdown
+        %a.dropdown-toggle{href: '#', data: {toggle: 'dropdown'}}
+          Modelling
+        %ul.dropdown-menu
+          %li= link_to 'As, Cr, Sb', as_path
+      %li.dropdown
+        %a.dropdown-toggle{href: '#', data: {toggle: 'dropdown'}}
+          Observations DB
+        %ul.dropdown-menu
+          %li= link_to "Rates and Gibbs Free energy", observations_path
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         %li.dropdown

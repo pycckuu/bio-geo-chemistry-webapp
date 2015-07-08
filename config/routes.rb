@@ -1,5 +1,6 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
+  resources :observations
   if defined? Sidekiq
     require 'sidekiq/web'
     authenticate :user, lambda {|u| u.is_admin? } do
@@ -13,7 +14,9 @@ Rails.application.routes.draw do
   match '/error' => 'pages#error', via: [:get, :post], as: 'error_page'
   get '/terms' => 'pages#terms', as: 'terms'
   get '/privacy' => 'pages#privacy', as: 'privacy'
+  get '/about' => 'pages#about', as: 'about'
   get '/as' => 'pages#as', as: 'as'
+  get '/bioenergetics' => 'pages#bioenergetics', as: 'bioenergetics'
 
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix

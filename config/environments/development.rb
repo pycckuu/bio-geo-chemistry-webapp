@@ -17,6 +17,7 @@ Rails.application.configure do
   config.log_level = :debug
   config.logger = ActiveSupport::Logger.new(STDOUT)
   config.colorize_logging = true
+  config.serve_static_files = true
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -43,4 +44,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  # LiveReload
+  config.middleware.use Rack::LiveReload 
+  
 end
