@@ -36,7 +36,7 @@ common: &default_settings
   # Defaults to the capitalized RAILS_ENV or RACK_ENV (i.e.,
   # Production, Staging, etc)
 
-  app_name: <%= I18n.t 'brand.name' %>
+  app_name: <%= ENV['NEW_RELIC_APP_NAME'] %>
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
