@@ -1,5 +1,5 @@
 = Biogeochemistry app
-[ ![Codeship Status for pycckuu/bio-geo-chemistry-webapp](https://codeship.com/projects/d5225220-08b2-0133-b978-52c6dae51101/status?branch=master)](https://codeship.com/projects/90384)
+https://codeship.com/projects/d5225220-08b2-0133-b978-52c6dae51101/status?branch=master
 
 <b>UI/UX</b>
 * Turbolinks[https://github.com/rails/turbolinks] — fast page rendering; configured to play nice with HeadJS, AJAX, etc.
