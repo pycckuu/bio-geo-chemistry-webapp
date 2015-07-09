@@ -32,7 +32,7 @@ RSpec.describe "observations/index", type: :view do
     ])
   end
 
-  it "renders a list of observations" do
+  pending "renders a list of observations" do
     render
     assert_select "tr>td", :text => "Reaction Name".to_s, :count => 2
     assert_select "tr>td", :text => "Donor".to_s, :count => 2
