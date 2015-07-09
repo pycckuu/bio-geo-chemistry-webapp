@@ -1,8 +1,6 @@
 /tmp/
 /log/
 *.sublime-workspace
-<<<<<<< HEAD
-=======
 /coverage/
 /server cert/
->>>>>>> master
+

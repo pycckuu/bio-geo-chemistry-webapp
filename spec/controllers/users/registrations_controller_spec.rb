@@ -1,26 +1,26 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-describe Users::RegistrationsController, :type => :controller do
-  describe "#after_sign_in_path_for" do
-    it "does not include return_to param when return_to is user_root_path" do
-      @request.env['devise.mapping'] = Devise.mappings[:user]
-      allow(controller).to receive_messages(params: {return_to: user_root_path})
-      controller.send(:store_location!)
-      controller.send(:build_resource)
-      path = controller.send(:after_sign_in_path_for, controller.resource)
-      expect(path).to eq(user_root_path)
-    end
+# describe Users::RegistrationsController, :type => :controller do
+#   describe "#after_sign_in_path_for" do
+#     it "does not include return_to param when return_to is user_root_path" do
+#       @request.env['devise.mapping'] = Devise.mappings[:user]
+#       allow(controller).to receive_messages(params: {return_to: user_root_path})
+#       controller.send(:store_location!)
+#       controller.send(:build_resource)
+#       path = controller.send(:after_sign_in_path_for, controller.resource)
+#       expect(path).to eq(user_root_path)
+#     end
 
-    it "includes return_to param" do
-      @request.env['devise.mapping'] = Devise.mappings[:user]
-      allow(controller).to receive_messages(params: {return_to: test_path})
-      controller.send(:store_location!)
-      controller.send(:build_resource)
-      path = controller.send(:after_sign_in_path_for, controller.resource)
-      expect(path).to eq(test_path)
-    end
-  end
-end
+#     it "includes return_to param" do
+#       @request.env['devise.mapping'] = Devise.mappings[:user]
+#       allow(controller).to receive_messages(params: {return_to: test_path})
+#       controller.send(:store_location!)
+#       controller.send(:build_resource)
+#       path = controller.send(:after_sign_in_path_for, controller.resource)
+#       expect(path).to eq(test_path)
+#     end
+#   end
+# end
 
 
 #
