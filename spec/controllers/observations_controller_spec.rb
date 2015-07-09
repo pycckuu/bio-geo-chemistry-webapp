@@ -52,7 +52,7 @@ RSpec.describe ObservationsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  pending "GET #new" do
     it "assigns a new observation as @observation" do
       get :new, {}, valid_session
       expect(assigns(:observation)).to be_a_new(Observation)

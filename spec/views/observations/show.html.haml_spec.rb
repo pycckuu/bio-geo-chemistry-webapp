@@ -17,8 +17,8 @@ RSpec.describe "observations/show", type: :view do
     ))
   end
 
-  it "renders attributes in <p>" do
-    render
+  pending "renders attributes in <p>" do
+    render 
     expect(rendered).to match(/Reaction Name/)
     expect(rendered).to match(/Donor/)
     expect(rendered).to match(/Acceptor/)
