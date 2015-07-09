@@ -17,7 +17,7 @@ RSpec.describe "observations/edit", type: :view do
     ))
   end
 
-  it "renders the edit observation form" do
+  pending "renders the edit observation form" do
     render
 
     assert_select "form[action=?][method=?]", observation_path(@observation), "post" do
