@@ -50,6 +50,7 @@ gem 'coffee-rails'
 
 # Design
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 # gem 'bourbon'
 # gem 'neat'
 # gem 'country_select'
@@ -85,6 +86,7 @@ gem 'github-markdown'
 
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'twitter'
 
 group :development do
   # Docs
