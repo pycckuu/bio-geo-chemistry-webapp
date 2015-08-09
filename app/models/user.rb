@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  has_many :observations
+  has_many :gibbs_rates_observations
 
   after_create :send_welcome_emails
 

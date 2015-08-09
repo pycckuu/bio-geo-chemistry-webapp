@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "observations/show", type: :view do
+RSpec.describe "gibbs_rates_observations/show", type: :view do
   before(:each) do
-    @observation = assign(:observation, Observation.create!(
+    @gibbs_rates_observation = assign(:gibbs_rates_observation, GibbsRatesObservation.create!(
       :reaction_name => "Reaction Name",
       :donor => "Donor",
       :acceptor => "Acceptor",

@@ -1,0 +1,5 @@
+<%- headers = ['reaction_name', 'donor', 'acceptor', 'reaction', 'lab', 'environment_type', 'location_name', 'rate', 'gibbs_energy', 'reference', 'paper', 'user_id', 'lat', 'lng', 'add_info', 'gibbs_units', 'rate_units'] -%>
+<%= CSV.generate_line headers %>
+<%- @gibbs_rates_observations.each do |gibbs_rates_observation| -%>
+  <%= CSV.generate_line([ gibbs_rates_observation.reaction_name, gibbs_rates_observation.donor, gibbs_rates_observation.acceptor, gibbs_rates_observation.reaction, gibbs_rates_observation.lab, gibbs_rates_observation.environment_type, gibbs_rates_observation.location_name, gibbs_rates_observation.rate, gibbs_rates_observation.gibbs_energy, gibbs_rates_observation.reference, gibbs_rates_observation.paper, gibbs_rates_observation.user_id, gibbs_rates_observation.lat, gibbs_rates_observation.lng, gibbs_rates_observation.add_info, gibbs_rates_observation.gibbs_units, gibbs_rates_observation.rate_units ]).html_safe %>
+<%- end -%>

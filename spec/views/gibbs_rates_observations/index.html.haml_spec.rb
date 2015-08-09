@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "observations/index", type: :view do
+RSpec.describe "gibbs_rates_observations/index", type: :view do
   before(:each) do
-    assign(:observations, [
-      Observation.create!(
+    assign(:gibbs_rates_observations, [
+      GibbsRatesObservation.create!(
         :reaction_name => "Reaction Name",
         :donor => "Donor",
         :acceptor => "Acceptor",
@@ -16,7 +16,7 @@ RSpec.describe "observations/index", type: :view do
         :reference => "Reference",
         :paper => "Paper"
       ),
-      Observation.create!(
+      GibbsRatesObservation.create!(
         :reaction_name => "Reaction Name",
         :donor => "Donor",
         :acceptor => "Acceptor",
@@ -32,7 +32,7 @@ RSpec.describe "observations/index", type: :view do
     ])
   end
 
-  pending  "renders a list of observations" do
+  pending  "renders a list of gibbs_rates_observations" do
     render
     assert_select "tr>td", :text => "Reaction Name".to_s, :count => 2
     assert_select "tr>td", :text => "Donor".to_s, :count => 2

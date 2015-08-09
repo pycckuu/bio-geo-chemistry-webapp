@@ -1,0 +1,113 @@
+%p#notice= notice
+
+.row
+  .col-sm-6
+    %p
+    .row
+      .col-md-4
+        %b Reaction name:
+      .col-md-8
+        = @gibbs_rates_observation.reaction_name
+    %p
+    .row
+      .col-md-4
+        %b Donor:
+      .col-md-8
+        = @gibbs_rates_observation.donor
+    %p
+    .row
+      .col-md-4
+        %b Acceptor:
+      .col-md-8
+        = @gibbs_rates_observation.acceptor
+    %p
+    .row
+      .col-md-4
+        %b Reaction:
+      .col-md-8
+        = @gibbs_rates_observation.reaction
+    %p
+    .row
+      .col-md-4
+        %b Measured: 
+      .col-md-8
+        - if @gibbs_rates_observation.lab
+          In the lab
+        - else
+          in Situ
+    %p
+    .row
+      .col-md-4
+        %b Rate:
+      .col-md-8
+        = @gibbs_rates_observation.rate
+        = @gibbs_rates_observation.rate_units
+    %p
+    .row
+      .col-md-4
+        %b Gibbs energy:
+      .col-md-8
+        = @gibbs_rates_observation.gibbs_energy
+        = @gibbs_rates_observation.gibbs_units
+    %p
+    .row
+      .col-md-4
+        %b Reference:
+      .col-md-8
+        = @gibbs_rates_observation.reference
+    %p
+    .row
+      .col-md-4
+        %b Paper:
+      .col-md-8
+        = @gibbs_rates_observation.paper
+    %p
+    .row
+      .col-md-4
+        %b Additional info:
+      .col-md-8
+        =@gibbs_rates_observation.add_info
+  .col-sm-6
+    %p
+    .row
+      .col-md-4
+        %b location_name:
+      .col-md-8
+        = @gibbs_rates_observation.location_name
+    #map{style: 'width: 400px; height: 400px;'}
+    %p
+    .row
+      .col-md-4
+        %b Latitude:
+      .col-md-8
+        = @gibbs_rates_observation.lat 
+    .row
+      .col-md-4
+        %b Longitude:
+      .col-md-8
+        = @gibbs_rates_observation.lng 
+    .row
+      .col-md-4
+        %b Type:
+      .col-md-8
+        = @gibbs_rates_observation.environment_type
+    .row
+      .col-md-4
+        %b Added by:
+      .col-md-8
+        = @gibbs_rates_observation.owner.name
+        = time_ago_in_words(@gibbs_rates_observation.created_at)
+        ago
+
+.pull-left
+  = link_to 'Back', gibbs_rates_observations_path
+.pull-right
+  = link_to 'Edit', edit_gibbs_rates_observation_path(@gibbs_rates_observation), class: "btn btn-primary"
+  = link_to 'Delete', @gibbs_rates_observation, method: :delete, data:  { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+
+:javascript
+  $(document).ready(function(){
+    var gibbs_rates_observation = #{@gibbs_rates_observation.to_json}    // pass ruby variable to javascript
+    gmap_show(gibbs_rates_observation);    // init show map for gibbs_rates_observation card (only print marker)
+  });

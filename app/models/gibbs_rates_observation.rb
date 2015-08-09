@@ -1,4 +1,4 @@
-class Observation < ActiveRecord::Base
+class GibbsRatesObservation < ActiveRecord::Base
   belongs_to  :user
 
   def owner

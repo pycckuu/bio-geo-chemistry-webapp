@@ -1,4 +1,4 @@
-module ObservationsHelper
+module GibbsRatesObservationsHelper
 
   def gibbs_units
     ['kJ/M','J/M','kJ/M EA', 'kJ/M ED', 'kJ/M/e','J/M EA', 'J/M ED', 'J/M/e']
