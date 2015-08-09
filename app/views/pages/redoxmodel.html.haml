@@ -1,0 +1,178 @@
+.container
+  %h4{align: 'center'} Model to Represent the Redox Sequence of Oxidant and Reductant Utilization during Organic Matter Decomposition
+  .row
+    .col-md-6
+      #section-head
+        %h5 Utilization of ED and EA
+      #section-body
+        #image
+          = image_tag "redoxmodel/scheme.png", size: "450x300"
+        :plain
+          \begin{equation}
+          R^e_i = v^e_i \cdot X \cdot \prod\limits_j \frac{C^{lim}_j}{K^m_j+C^{lim}_j} \cdot F_T^i \cdot F^i_X
+          \end{equation}        
+
+    .col-md-6
+      #section-head
+        %h5 Commonly used
+      #section-body
+        The mathematical expression of Humphrey (1972) is the most widely used expression to specify the redox sequence of consumption of terminal electron acceptors by bacteria:
+        :plain
+          \begin{equation}
+          F_{I} = \prod_{i=1}^{N}\frac{K_I^{i}}{K_I^{i}+C_I^i}
+          \end{equation}
+        %br
+        %h5{align: 'center'} Drawbacks
+        %p 
+          The modellers calibrate the K
+          %sub I
+          , i.e. parameters are site or experiment specific and, thus, lack general validity
+        %p Does not take into account the dynamic nature of environmental systems(pH, T, etc). Changing environmental conditions may shuffle the sequence. For instance, sulfate before Iron III (Jakobsen and Postma, 1999; LaRowe and Van Cappellen, 2011)
+  .row
+    .col-md-6
+      #section-head
+        %h5 We suggest
+      #section-body
+        In the energy limited environment bacteria compete for the resources, therefore, we incorporate the actual beneficial outcome for the bacteria (power produced by redox reaction, Pi)
+        :plain
+          \begin{equation}
+          P_i = - n_i\cdot \Delta G_i \cdot R_i = - \Delta G_i \cdot R^e_i
+          \end{equation}        
+        #section-stress
+          %h5 To gain power as much as possible!
+        :plain
+          \begin{equation}
+          \label{eq:optimization}
+          \begin{cases}
+          & \max \left\{ - \sum\limits^{N}_{i=1} \Delta G_i \cdot R^e_i \cdot F^i_X \right\} \\
+          & \sum\limits^{N}_{i=1} F^i_X = 1 \\
+          &  F^i_X \geq 0
+          \end{cases}
+          \end{equation}
+
+    .col-md-6
+      #section-head
+        %h5 Example: 1 ED and 6 EA
+      #section-body
+        #section-chemical-oxidation
+          %h5 Oxidation
+        :plain
+          \begin{equation}
+            \frac{1}{24}C_6H_{12}O_6 + \frac{1}{2}H_2O -> \frac{1}{4}HCO_3^- +  \frac{5}{4}H^+ + e^-
+          \end{equation}
+        #section-chemical-reduction
+          %h5 Reduction
+        :plain
+          \begin{equation}
+            \frac{1}{4}O_2 + H^+ + e^- -> \frac{1}{2}H_2O
+          \end{equation}
+          \begin{equation}
+            \frac{1}{5}NO_3- + \frac{6}{5}H^+ + e^- -> \frac{1}{10}N_2(aq) + \frac{3}{5}H_2O
+          \end{equation}
+          \begin{equation}
+            MnOOH + 3H^+ + e -> Mn^{2+} + 2H_2O
+          \end{equation}
+          \begin{equation}
+            Fe(OH)_3 + 3H^+ + e^- -> Fe^{2+} + 3H_2O
+          \end{equation}
+          \begin{equation}
+            \frac{1}{8}SO_4^{2-} + \frac{9}{8}H^+ + e^- -> \frac{1}{8}HS^- + \frac{1}{2}H_2O
+          \end{equation}
+          \begin{equation}
+            FeOOH + 3H^+ + e^- -> Fe^{2+} + 2H_2O
+          \end{equation}
+
+  .row
+    .col-md-6
+      #section-head
+        %h5 Example: 1 ED and 6 EA
+      #section-body
+        #image
+          = image_tag "redoxmodel/conc_1ed_6ea.png", size: "400x320"
+    .col-md-6
+      #section-head
+        %h5 Example: 1 ED and 6 EA
+      #section-body
+        #image
+          = image_tag "redoxmodel/pr_1ed_6ea.png", size: "400x320"
+
+  .row
+    .col-md-6
+      #section-head
+        %h5 Example: 2 ED and 2 EA
+      #section-body
+        #section-chemical-oxidation
+          %h5 Oxidation
+        :plain
+          \begin{equation}
+            \frac{1}{2}H_2 -> H^+ + e^-
+          \end{equation}
+          \begin{equation}
+            \frac{1}{8}CH_3COO^- + \frac{1}{6}H_2O  -> \frac{1}{4}HCO_3^- + \frac{9}{8}H^+ + e^-
+          \end{equation}
+        #section-chemical-reduction
+          %h5 Reduction
+        :plain
+          \begin{equation}
+            Fe(OH)_3 + 3H^+ + e^- -> Fe^{2+} + 3H_2O
+          \end{equation}
+          \begin{equation}
+            \frac{1}{8}SO_4^{2-} + \frac{9}{8}H^+ + e^- -> \frac{1}{8}HS^- + \frac{1}{2}H_2O
+          \end{equation}
+    .col-md-6
+      #section-head
+        %h5 Example: 2 ED and 2 EA
+      #section-body
+        #image
+          = image_tag "redoxmodel/conc_2ed_2ea.png", size: "400x320"
+
+  .row
+    .col-md-6
+      #section-head
+        %h5 Example: 2 ED and 2 EA
+      #section-body
+        #image
+          = image_tag "redoxmodel/pr_2ed_2ea.png", size: "400x320"
+    .col-md-6
+      #section-head
+        %h5 Applications
+      %br
+      #section-body
+        Natural energy-limited environments, such as oligotrophic aquifers, where the nutrient delivery is low and bacteria compete for the resources
+      %br
+      #section-head
+        %h5 References
+      %br
+      #section-body
+        %p Humphrey A. E. (1972). Advances in Chemistry, 109
+        %p Jakobsen R. & Postma D. (1999). Geochimica Et Cosmochimica Acta, 63(1)
+        %p LaRowe D. E. & Van Cappellen P. (2011). Geochimica Et Cosmochimica Acta, 75(8)
+
+:css
+  #section-body {
+    text-align: left;
+  }
+
+  #section-head{
+    text-align: center;
+    border-bottom-style: solid;
+  }
+
+  #image{
+    text-align: center;
+  }
+
+  #section-stress h5 {
+    color: #B9185F;
+    text-align: center;
+  }
+
+  #section-chemical-oxidation h5{
+    color: #12911E;
+    text-align: center;   
+  }
+
+  #section-chemical-reduction h5{
+    color: #0073E6;
+    text-align: center;   
+  }
