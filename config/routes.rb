@@ -48,5 +48,6 @@ Rails.application.routes.draw do
 
   get 'robots.:format' => 'robots#index'
 
+  mathjax 'mathjax'
   root 'pages#home'
 end
