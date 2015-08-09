@@ -1,0 +1,39 @@
+%h1 Observations
+
+%table{class: 'table'}
+  %thead
+    %tr
+      %th ID
+      %th Reaction name
+      %th Lab?
+      %th Type
+      %th Where
+      %th Rate
+      %th Gibbs energy
+      %th Reference
+      %th
+
+  %tbody
+    - @gibbs_rates_observations.each do |gibbs_rates_observation|
+      %tr
+        %td= link_to gibbs_rates_observation.id, gibbs_rates_observation
+        %td= gibbs_rates_observation.reaction_name
+        - if gibbs_rates_observation.lab 
+          %td Lab
+        - else
+          %td In Situ
+        %td= gibbs_rates_observation.environment_type
+        %td= gibbs_rates_observation.location_name
+        %td= gibbs_rates_observation.rate.to_s + ', ' + gibbs_rates_observation.rate_units
+        %td= gibbs_rates_observation.gibbs_energy.to_s + ', ' + gibbs_rates_observation.gibbs_units
+        %td= first_author(gibbs_rates_observation.reference)
+
+%br
+
+.row
+  .col-md-6
+    .pull-left
+      = link_to 'New GibbsRatesObservation', new_gibbs_rates_observation_path
+  .col-md-6
+    .pull-right
+      = link_to 'Export as CSV', gibbs_rates_observations_path(format: :csv)

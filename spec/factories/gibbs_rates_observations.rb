@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :observation do
+  factory :gibbs_rates_observation do
     reaction_name "MyString"
 donor "MyString"
 acceptor "MyString"

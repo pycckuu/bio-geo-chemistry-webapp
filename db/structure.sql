@@ -69,22 +69,10 @@ ALTER SEQUENCE authentications_id_seq OWNED BY authentications.id;
 
 
 --
--- Name: oauth_caches; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: gibbs_rates_observations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE oauth_caches (
-    authentication_id integer NOT NULL,
-    data_json text NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: observations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE observations (
+CREATE TABLE gibbs_rates_observations (
     id integer NOT NULL,
     reaction_name character varying,
     donor character varying,
@@ -109,10 +97,10 @@ CREATE TABLE observations (
 
 
 --
--- Name: observations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: gibbs_rates_observations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE observations_id_seq
+CREATE SEQUENCE gibbs_rates_observations_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -121,10 +109,22 @@ CREATE SEQUENCE observations_id_seq
 
 
 --
--- Name: observations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: gibbs_rates_observations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE observations_id_seq OWNED BY observations.id;
+ALTER SEQUENCE gibbs_rates_observations_id_seq OWNED BY gibbs_rates_observations.id;
+
+
+--
+-- Name: oauth_caches; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE oauth_caches (
+    authentication_id integer NOT NULL,
+    data_json text NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
 
 
 --
@@ -266,7 +266,7 @@ ALTER TABLE ONLY authentications ALTER COLUMN id SET DEFAULT nextval('authentica
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY observations ALTER COLUMN id SET DEFAULT nextval('observations_id_seq'::regclass);
+ALTER TABLE ONLY gibbs_rates_observations ALTER COLUMN id SET DEFAULT nextval('gibbs_rates_observations_id_seq'::regclass);
 
 
 --
@@ -299,11 +299,11 @@ ALTER TABLE ONLY authentications
 
 
 --
--- Name: observations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: gibbs_rates_observations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY observations
-    ADD CONSTRAINT observations_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY gibbs_rates_observations
+    ADD CONSTRAINT gibbs_rates_observations_pkey PRIMARY KEY (id);
 
 
 --
@@ -422,4 +422,10 @@ INSERT INTO schema_migrations (version) VALUES ('20150705143224');
 INSERT INTO schema_migrations (version) VALUES ('20150705155634');
 
 INSERT INTO schema_migrations (version) VALUES ('20150705161055');
+
+INSERT INTO schema_migrations (version) VALUES ('20150809132610');
+
+INSERT INTO schema_migrations (version) VALUES ('20150809134542');
+
+INSERT INTO schema_migrations (version) VALUES ('20150809140419');
 
