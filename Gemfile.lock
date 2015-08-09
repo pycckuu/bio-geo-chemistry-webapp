@@ -471,6 +471,7 @@ DEPENDENCIES
   activerecord-session_store
   addressable
   airbrake (~> 3.2.1)
+  autoprefixer-rails
   awesome_print
   better_errors
   binding_of_caller

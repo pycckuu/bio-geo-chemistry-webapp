@@ -50,7 +50,7 @@ gem 'coffee-rails'
 
 # Design
 gem 'bootstrap-sass'
-# gem 'autoprefixer-rails'
+gem 'autoprefixer-rails'
 # gem 'bourbon'
 # gem 'neat'
 # gem 'country_select'
