@@ -2,7 +2,7 @@
   .col-md-10
     .row
       .col-md-4 
-        %h4 MyLake and Sediments Project
+        %h5 MyLake and Sediments Project
         The MyLake model has been developed at 
         =link_to 'NIVA (Norwegian Institute for Water Research)', 'http://www.niva.no/en/index' 
         within various projects, and is freely available, but comes with no warranty under
@@ -12,21 +12,24 @@
         = link_to 'MATLAB', 'http://mathworks.com/products/matlab/' 
         scripts written specifically for each application.
       .col-md-4
-        %h4 Stand-Alone Sediments
+        %h5 Stand-Alone Sediments
         Sediments is a biogeochemical model, which calculates the concentration of different species at each depth for a specific time period, based on the reaction framework, transport processes, and boundary conditions specified by the users. It does so by forming a system of partial differential equations based on the early diagenesis equation
       .col-md-4
-        %h4 Bioenergetics
-        Using Humphrey (1972) equation the modelers imply the sequence of non-competitive inhibition of reactions. The mathematical term serves to inhibit the lower energy-yielding metabolic pathways keeping only the most favorable one. However, this approach does not take into account the dynamic nature of environmental systems, such as changes in pH, temperature, or redox state, which affects the thermodynamic driving force of energy-yielding reactions. The parameters of the inhibiting terms usually are site or experiment specific and, thus, lack general validity.
+        %h5 
+          = link_to 'Redox Sequence Model', redoxmodel_path
+        = image_tag "redoxmodel/scheme.png", size: "225x150"
+        The new approaches account for the Gibbs energy of reaction of the potential redox processes and simulates TEA consumption based on the actual conditions in the system. That is, energetically less favorable oxidants are outcompeted by more favorable ones
+
 
     .row
       .col-sm-4
-        %h4 
+        %h5 
           = link_to 'Experimental work: As, Cr, Sb ', as_path
         As: Experiment II
         %script{id: "630c1d2b-4ac2-46cf-87d1-ac26055c1944", async: "true", "data-bokeh-data": "static", "data-bokeh-modelid": "143c7b48-2ef6-452c-8411-8fa69047209c", "data-bokeh-modeltype": "Plot", "data-bokeh-loglevel": "info"}
         Figure 1: Here you may see the interplay of sorption and biologically mediated detoxification reactions
 
-    %h4 Access
+    %h5 Access
 
     %p
       To ask an access to 

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
 
   
-  def bioenergetics
+  def redoxmodel
     
   end
 
