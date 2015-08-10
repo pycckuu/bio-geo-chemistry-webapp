@@ -142,8 +142,8 @@ describe User, :type => :model do
     end
   end
 
-  pending "#authentications" do
-    pending "has many dependent authentications" do
+  describe "#authentications" do
+    skip "has many dependent authentications" do
       expect(user).to have_many(:authentications).dependent(:destroy)
     end
     describe "#grouped_with_oauth" do
