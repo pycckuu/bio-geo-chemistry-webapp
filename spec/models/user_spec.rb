@@ -142,7 +142,7 @@ describe User, :type => :model do
     end
   end
 
-  describe "#authentications" do
+  pending "#authentications" do
     pending "has many dependent authentications" do
       expect(user).to have_many(:authentications).dependent(:destroy)
     end
