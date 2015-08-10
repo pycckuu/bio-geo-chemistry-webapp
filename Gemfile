@@ -72,7 +72,7 @@ gem 'omniauth-twitter'
 gem 'rails_admin'
 
 # Workers
-gem 'sidekiq', '~> 3.3.4'
+gem 'sidekiq'
 gem 'devise-async'
 gem 'sinatra', require: false
 
