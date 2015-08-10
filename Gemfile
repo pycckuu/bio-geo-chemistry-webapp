@@ -87,7 +87,7 @@ gem 'github-markdown'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'twitter'
-gem 'mathjax-rails'
+# gem 'mathjax-rails'
 
 
 group :development do

@@ -237,8 +237,6 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mathjax-rails (2.5.1)
-      railties (>= 3.0)
     memcachier (0.0.2)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -537,7 +535,6 @@ DEPENDENCIES
   headjs-rails
   jquery-rails
   jquery-turbolinks
-  mathjax-rails
   memcachier
   meta_request
   minitest
