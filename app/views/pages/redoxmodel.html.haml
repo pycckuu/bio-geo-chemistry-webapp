@@ -1,5 +1,10 @@
+.row{align: 'right'}
+  = link_to "Download PDF", 'igor_poster_gold2015.pdf', :class => "btn btn-large btn-primary" 
 .container
-  %h4 Model to Represent the Redox Sequence of Oxidant and Reductant Utilization during Organic Matter Decomposition
+  %h4 
+    Modeling the Sequence of Oxidant and Reductant Utilization 
+    %br
+    during Organic Matter Decomposition
   %center
     %i
       =mail_to "igor.markelov@uwaterloo.ca", "Igor Markelov"  
@@ -8,43 +13,55 @@
   .row
     .col-md-6
       #section-head
-        %h5 Utilization of ED and EA
+        %h5 
+          Competition for electron donors (ED)
+          %br
+          and electron acceptors (EA)
       #section-body
         #image
           = image_tag "redoxmodel/scheme.png", size: "450x300"
         :plain
           \begin{equation}
-          R^e_i = v^e_i \cdot X \cdot \prod\limits_j \frac{C^{lim}_j}{K^m_j+C^{lim}_j} \cdot F_T^i \cdot F^i_X
-          \end{equation}        
-
+          R_i = k_i \cdot X \cdot \left[\frac{C_{ED}}{K^m_{ED}+C_{ED}}\right]_i \cdot \left[\frac{C_{EA}}{K^m_{EA}+C_{EA}}\right]_i \cdot F_T^i \cdot F^i_X
+          \end{equation}
+        .row
+          #text-eq{align: 'left'}
+            :plain
+              \begin{equation} R_i \text{   - the rate of oxidation of a }i^{th}\text{ electron donor by the reduction of }i^{th}\text{ electron acceptor}\end{equation}
+              \begin{equation} k_i   \text{   - reaction rate constant per unit biomass}\end{equation}
+              \begin{equation} X     \text{   - microbial biomass} \end{equation}
+              \begin{equation} C_{ED}\text{   - concentration of the electron donor} \end{equation}
+              \begin{equation} C_{EA}\text{   - concentration of the electron acceptor} \end{equation}
+              \begin{equation} K^m   \text{   - half-saturation constant} \end{equation}
+              \begin{equation} F_T^i \text{   - thermodynamic term} \end{equation}
+              \begin{equation} F_X^i \text{   - “inhibition” term} \end{equation}
     .col-md-6
       #section-head
-        %h5 Commonly used
+        %h5 Common practice
       #section-body
-        The mathematical expression of Humphrey (1972) is the most widely used expression to specify the redox sequence of consumption of terminal electron acceptors by bacteria:
+        The most widely used expression to simulate the succession of electron acceptor utilization during the microbial degradation of organic matter is that of Humphrey (1972):
         :plain
           \begin{equation}
-          F_{I} = \prod_{i=1}^{N}\frac{K_I^{i}}{K_I^{i}+C_I^i}
+          F_X^i = \prod_{i=1}^{N}\frac{K_I^{i-1}}{K_I^{i-1}+C_I^{i-1}}
           \end{equation}
+          \begin{equation} C_I^{i-1} \text{   - concentrations of all oxidants stronger than the }i^{th}\text{ EA} \end{equation}
+          \begin{equation} K_I^{i-1} \text{   - the inhibition constant} \end{equation}
         %br
         %h5{align: 'center'} Drawbacks
-        %p 
-          The modellers calibrate the K
-          %sub I
-          , i.e. parameters are site or experiment specific and, thus, lack general validity
-        %p Does not take into account the dynamic nature of environmental systems(pH, T, etc). Changing environmental conditions may shuffle the sequence. For instance, sulfate before Iron III (Jakobsen and Postma, 1999; LaRowe and Van Cappellen, 2011)
+        %p 1. Inhibition model requires the a priori assignment of the order of EA utilization.
+        %p 2. Inhibition constants are specific to a particular set of environmental or experimental conditions and, hence, lack general applicability.
+        %p 3. The inhibition model cannot respond to variations in dynamic conditions that may reshuffle the order of EA or ED utilization (e.g., causing sulfate to be used before ferric iron oxyhydroxides – see Jakobsen R. & Postma D, 1999).
   .row
     .col-md-6
       #section-head
-        %h5 We suggest
+        %h5 Alternative approach
       #section-body
-        In the energy limited environment bacteria compete for the resources, therefore, we incorporate the actual beneficial outcome for the bacteria (power produced by redox reaction, Pi)
+        In energy-limited environments (e.g., the subsurface), microbial communities compete for energy substrates. We propose to represent this competition by taking into account the power (Pi) of catabolic reactions:
         :plain
           \begin{equation}
           P_i = - n_i\cdot \Delta G_i \cdot R_i = - \Delta G_i \cdot R^e_i
           \end{equation}        
-        #section-stress
-          %h5 To gain power as much as possible!
+        %p The sequence of redox reactions is now determined by the power that can be harvested by the microbial populations.
         :plain
           \begin{equation}
           \label{eq:optimization}
@@ -54,6 +71,11 @@
           &  F^i_X \geq 0
           \end{cases}
           \end{equation}
+
+          \begin{equation} P_i \text{   - power produced by }i^{th}\text{ redox reaction} \end{equation}
+          \begin{equation} \Delta G^e_i \text{   - Gibbs energy of the reaction per electron equivalent} \end{equation}
+          \begin{equation} R^e_i \text{   - rate of the reaction per electron equivalent} \end{equation}
+          \begin{equation} F^i_X \text{   - the unknown. The part of bacteria which respires }i^{th}\text{ reaction} \end{equation}
 
     .col-md-6
       #section-head
@@ -143,7 +165,7 @@
         %h5 Applications
       %br
       #section-body
-        Natural energy-limited environments, such as oligotrophic aquifers, where the nutrient delivery is low and bacteria compete for the resources
+        Using an approach based on the optimization of the power generated by catabolic processes allows one to account for dynamic environmental conditions (e.g., variability of temperature, pH, ionic strength, activities of redox active species). The method can be applied to simulate the redox stratification observed in early diagenesis and other energy-limited environments, such as oligotrophic aquifers, where energy substrates are in low abundance.
       %br
       #section-head
         %h5 References
@@ -152,9 +174,16 @@
         %p Humphrey A. E. (1972). Advances in Chemistry, 109
         %p Jakobsen R. & Postma D. (1999). Geochimica Et Cosmochimica Acta, 63(1)
         %p LaRowe D. E. & Van Cappellen P. (2011). Geochimica Et Cosmochimica Acta, 75(8)
+  .row{align: 'right'}
+    = link_to "Download PDF", 'igor_poster_gold2015.pdf', :class => "btn btn-large btn-primary" 
 
 :css
-  .container h4 {
+  table.nospacing {
+    border-spacing:0; /* Removes the cell spacing via CSS */
+    border-collapse: collapse;  /* Optional - if you don't want to have double border where cells touch */
+  }
+  
+    .container h4 {
     position: relative;
     text-align: center;
     margin-left: 3em;
