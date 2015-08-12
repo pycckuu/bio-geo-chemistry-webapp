@@ -1,10 +1,9 @@
-.row{align: 'right'}
-  = link_to "Download PDF", 'igor_poster_gold2015.pdf', :class => "btn btn-large btn-primary" 
 .container
   %h4 
     Modeling the Sequence of Oxidant and Reductant Utilization 
     %br
     during Organic Matter Decomposition
+    = link_to "(pdf)", 'igor_poster_gold2015.pdf'
   %center
     %i
       =mail_to "igor.markelov@uwaterloo.ca", "Igor Markelov"  
@@ -25,7 +24,7 @@
           R_i = k_i \cdot X \cdot \left[\frac{C_{ED}}{K^m_{ED}+C_{ED}}\right]_i \cdot \left[\frac{C_{EA}}{K^m_{EA}+C_{EA}}\right]_i \cdot F_T^i \cdot F^i_X
           \end{equation}
         .row
-          #text-eq{align: 'left'}
+          #text-eq
             :plain
               \begin{equation} R_i \text{   - the rate of oxidation of a }i^{th}\text{ electron donor by the reduction of }i^{th}\text{ electron acceptor}\end{equation}
               \begin{equation} k_i   \text{   - reaction rate constant per unit biomass}\end{equation}
@@ -178,19 +177,17 @@
     = link_to "Download PDF", 'igor_poster_gold2015.pdf', :class => "btn btn-large btn-primary" 
 
 :css
-  table.nospacing {
-    border-spacing:0; /* Removes the cell spacing via CSS */
-    border-collapse: collapse;  /* Optional - if you don't want to have double border where cells touch */
+  .MathJax_Display {
+    text-align: left !important;
   }
-  
-    .container h4 {
+  .container h4 {
     position: relative;
     text-align: center;
     margin-left: 3em;
     margin-right: 3em;
   }
   #section-body {
-    text-align: left;
+    text-align: justify;
   }
 
   #section-head{
