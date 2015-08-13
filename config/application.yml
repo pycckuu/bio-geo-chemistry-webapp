@@ -16,7 +16,7 @@ common: &common
     twitter: 'https://twitter.com/pycckuu2000'
 
   contact:
-    email: 'is.markelov@gmail.com'
+    email: 'admin@bio-geo-chemistry.org'
     phone: '+33 6 95 32 97 91'
 
   session:
@@ -29,7 +29,7 @@ common: &common
 
   mail:
     layout: 'emails/email'
-    from: 'is.markelov@gmail.com'
+    from: 'admin@bio-geo-chemistry.org'
 
 
 # Default ENV vars.
@@ -37,7 +37,7 @@ common: &common
 # As a best practice, do not put production values in this file for security reasons.
 default_env: &default_env
   # From address to use when sending email
-  MAIL_HOST: 'localhost:3000'
+  MAIL_HOST: 'bio-geo-chemistry.org'
 
   # Host used to determine direct requests vs CDN.
   # See RobotsController.
