@@ -7,6 +7,13 @@ class UserMailer < ActionMailer::Base
     mail to: @user.email, subject: I18n.t('emails.welcome.subject')
   end
 
+  def test_email
+    @recipients = "is.markelov@gmail.com"
+    @from = "admin@bio-geo-chemistry.org"
+    @subject = "test from the Rails Console"
+    @body = "This is a test email"
+  end
+
   protected
 
   def load_user(user)
